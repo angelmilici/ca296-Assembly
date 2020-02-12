@@ -1,0 +1,4 @@
+IN 00
+MOV AL,[02]
+PUSH AL
+END

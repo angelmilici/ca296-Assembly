@@ -1,0 +1,23 @@
+JMP NUM1
+
+NUM1:
+	IN 00
+	CMP AL,3A ; Int must be less than ':'(3A)
+	JNS NUM1
+	CMP AL,30
+	JS NUM1
+	PUSH AL
+	POP CL
+	MOV BL,[CL]
+	JMP NUM2
+
+NUM2:
+	IN 00
+	CMP AL,3A
+	JNS NUM1
+	CMP AL,30
+	JS NUM1
+	SUB AL,30
+	SUB CL,30
+	MUL AL,CL
+	END
